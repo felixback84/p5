@@ -1,9 +1,9 @@
 // empty var to hold the object
-var s;
+let s;
 // global scale
-var scl = 20;
+let scl = 30;
 // food
-var food;
+let food;
 
 // init function
 function setup(){
@@ -13,34 +13,35 @@ function setup(){
     frameRate(10);
     // food cords
     pickLocation();
-}
+} 
 
 // pick location of the food
 function pickLocation(){
     // aprox values
-    var cols = floor(width/scl);
-    var rows = floor(height/scl);
+    let cols = floor(width/scl);
+    let rows = floor(height/scl);
     food = createVector(floor(random(cols)), floor(random(rows)));
-    // don`t forget the sixe of the food
+    // don`t forget the size of the food
     food.mult(scl);
 }
+
+// grow snake by clicks
+function mousePressed() {
+    s.total++;
+  }
 
 // create the entire object
 function draw(){
     // canvas color
     background(50);
-
-    // methods of snake
-    s.update();
-    s.show();
-
     // random coord after the eat
     if(s.eat(food)){
         pickLocation();
     }
-
-    // eat action
-    s.eat(food);
+    // methods of snake
+    s.death();
+    s.update();
+    s.show();
 
     // draw food
     fill(255, 0, 100);

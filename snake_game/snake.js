@@ -25,7 +25,7 @@ function Snake() {
 
     // set direction with the values of the keyboard
     this.dir = function(x, y) {
-        this.xdirection= x;
+        this.xdirection = x;
         this.ydirection = y;
     };
 
@@ -46,17 +46,17 @@ function Snake() {
     this.update = function() {
         // shift throught pixels(squares of the snake) to move all 
         //of them one position back and create an empty spot for the new one
-        // only when the snake eat
         for (let i = 0; i < this.tail.length - 1; i++) {
             this.tail[i] = this.tail[i + 1];
         }
-
+        
+        // only when the snake eat
         if (this.total >= 1) {
             this.tail[this.total - 1] = createVector(this.x, this.y);
         }
 
         // set the actual direction to the square for incremental
-        this.x = this.x + this.xdirection* scl;
+        this.x = this.x + this.xdirection * scl;
         this.y = this.y + this.ydirection * scl;
         
         // constrain to the size of the canvas object

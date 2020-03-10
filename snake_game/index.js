@@ -27,8 +27,8 @@ function pickLocation(){
 
 // grow snake by clicks
 function mousePressed() {
-    s.total++;
-  }
+        s.total++;
+    }
 
 // create the entire object
 function draw(){
